@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - cdn:/app/cdn/photos
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017
+    volumes:
+      - data:/data/db
+
+volumes:
+  data:
+  cdn:
